@@ -1,0 +1,33 @@
+.post-card {
+    max-width: 614px;
+  }
+
+  .grid-img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+
+  .grid-img:hover {
+    opacity: .85;
+  }
+
+  .btn-publish {
+    background: #0095f6;
+  }
+
+  .btn-publish:hover {
+    background: #1877f2;
+  }
+
+  @media (max-width: 576px) {
+    .post-card {
+      border-radius: 0 !important;
+      border-left: none !important;
+      border-right: none !important;
+    }
+  }
+

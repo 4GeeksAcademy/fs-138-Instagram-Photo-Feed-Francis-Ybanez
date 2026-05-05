@@ -9,96 +9,67 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<style>
-  .post-card {
-    max-width: 614px;
-  }
-
-  .grid-img {
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    width: 100%;
-    display: block;
-    cursor: pointer;
-    transition: opacity .2s;
-  }
-
-  .grid-img:hover {
-    opacity: .85;
-  }
-
-  .btn-publish {
-    background: #0095f6;
-  }
-
-  .btn-publish:hover {
-    background: #1877f2;
-  }
-
-  @media (max-width: 576px) {
-    .post-card {
-      border-radius: 0 !important;
-      border-left: none !important;
-      border-right: none !important;
-    }
-  }
-</style>
-
 
 <body class="bg-white">
 
   <!--navbar-->
-  <nav class="navbar bg-white sticky-top border-bottom px-3 px-md-4">
+  <nav class="navbar navbar-expand-sm bg-white sticky-top border-bottom px-3 px-md-4">
+
     <a class="navbar-brand fw-bold fs-5" href="https://www.instagram.com/" target="_blank"
       style="letter-spacing:-.5px;">
       <i class="bi bi-instagram me-1"></i>Instagram</a>
 
-    <!--Right Controls-->
+    <!--Botón Hamburguesa-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="d-flex align-items-center gap-2">
+    <!--Collapse-->
 
-      <!--Post button-->
-      <button class="btn btn-success btn-sm fw-semibold d-none d-sm-inline-flex align-items-center gap-1"
-        data-bs-toggle="modal" data-bs-target="#createPostModal">
-        <i class="bi bi-plus-lg"></i>
-        <span class="d-none d-md-inline">Create a new post</span>
-        <span class="d-md-none">Post</span>
-      </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+      <div class="d-flex align-items-center gap-2 py-2 py-sm-0">
 
-      <!--Dropdown-->
-      <div class="dropdown">
-        <button class="btn btn-secondary btn-sm dropdown-toggle d-flex align-items-center gap-1" type="button"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-gear-fill"></i>
+        <!--Post button-->
+        <button class="btn btn-success btn-sm fw-semibold d-flex align-items-center gap-1" data-bs-toggle="modal"
+          data-bs-target="#createPostModal">
+          <i class="bi bi-plus-lg"></i>
+          <span class="d-none d-md-inline">Create a new post</span>
+          <span class="d-md-none">Post</span>
         </button>
-        <ul class="dropdown-menu dropdown-menu-end shadow-sm border" style="min-width:200px; border-radius:8px;">
-          <li><a class="dropdown-item py-2" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
-          <li><a class="dropdown-item py-2" href="#"><i class="bi bi-universal-access me-2"></i>Accessibility</a></li>
-          <li><a class="dropdown-item py-2" href="#"><i class="bi bi-shield-lock me-2"></i>Privacy and Data</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item py-2 text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Log out</a>
-          </li>
-        </ul>
-      </div>
 
-      <!--Mobile:create psot icon only-->
-      <button class="btn btn-success btn-sm d-sm-none" data-bs-toggle="modal" data-bs-target="#createPostModal">
-        <i class="bi bi-plus-lg"></i>
-      </button>
+        <!--Dropdown-->
+        <div class="dropdown">
+          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-gear-fill"></i>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm border" style="min-width:200px; border-radius:8px;">
+            <li><a class="dropdown-item py-2" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item py-2" href="#"><i class="bi bi-universal-access me-2"></i>Accessibility</a></li>
+            <li><a class="dropdown-item py-2" href="#"><i class="bi bi-shield-lock me-2"></i>Privacy and Data</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item py-2 text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Log out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!--MAIN CONTENT-->
 
-  <main class="container-fluid px-0 py-3">
+  <main class="container-fluid py-3">
 
     <!--View toggle (tabs)-->
 
-    <div class="d-flex justify-content-center view-toggle gap-1 mb-3">
-      <button class="btn" id="btnList" title="Vista lista" onclick="setView('list')">
+    <div class="d-flex justify-content-center gap-1 mb-3">
+      <button class="btn btn-sm text-secondary fs-5" id="btnList" title="Vista lista" onclick="setView('list')">
         <i class="bi bi-square-fill"></i>
       </button>
       <button class="btn active" id="btnGrid" title="Vista cuadricula" onclick="setView('grid')">
@@ -126,7 +97,9 @@
             on Instagram</p>
         </div>
       </div>
+      
       <!--Post2-->
+      
       <div class="post-card mx-auto mb-4 bg-white border rounded-3 overflow-hidden">
         <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom fw-semibold small">
           <span>Friends gathering 🎉</span>
@@ -140,7 +113,9 @@
           <p class="mb-0 text-dark" style="font-size:.9rem;">Best day with the crew — nothing beats these moments.</p>
         </div>
       </div>
+
       <!--Post3-->
+
       <div class="post-card mx-auto mb-4 bg-white border rounded-3 overflow-hidden">
         <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom fw-semibold small">
           <span>Dubrovnik views 🌊</span>
@@ -157,45 +132,39 @@
     </div>
     <!--Grid View 3 columns-->
 
-    <div id="gridView">
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px;">
+    
 
-        <div><img class="grid-img"
-            src="https://mannersformutts.com/wp-content/uploads/2017/08/Fotolia_115368131_Subscription_Monthly_M-837x675.jpg"
-            alt="Dog" /></div>
-        <div><img class="grid-img"
-            src="https://images.pexels.com/photos/12915895/pexels-photo-12915895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="Friends" /></div>
-        <div><img class="grid-img" src="https://www.bekiaviajes.com/images/articulos/portada/96000/96805.jpg"
-            alt="Dubrovnik" /></div>
-        <div><img class="grid-img" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80"
-            alt="Portrait" /></div>
-        <div><img class="grid-img"
-            src="https://images.unsplash.com/photo-1565881606991-789a8dff9dbb?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZWlmZmVsJTIwdG93ZXJ8ZW58MHx8MHx8fDA%3D"
+
+       <div id="gridView">
+      <div class="row g-2">
+        <div class="col-12 col-md-6 col-lg-4"><img class="img-fluid grid-img" src="https://mannersformutts.com/wp-content/uploads/2017/08/Fotolia_115368131_Subscription_Monthly_M-837x675.jpg" alt="Dog" /></div>
+        <div class="col-12 col-md-6 col-lg-4"><img class="img-fluid grid-img" src="https://images.pexels.com/photos/12915895/pexels-photo-12915895.jpeg" alt="Friends" /></div>
+        <div class="col-12 col-md-6 col-lg-4"><img class="img-fluid grid-img" src="https://www.bekiaviajes.com/images/articulos/portada/96000/96805.jpg" alt="Dubrovnik" /></div>
+        <div class="col-12 col-md-6 col-lg-4"><img class="img-fluid grid-img" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Portrait" /></div>
+        <div class="col-12 col-md-6 col-lg-4"><img class="img-fluid grid-img" src="https://images.unsplash.com/photo-1565881606991-789a8dff9dbb?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZWlmZmVsJTIwdG93ZXJ8ZW58MHx8MHx8fDA%3D"
             alt="Eiffel Tower" /></div>
-        <div><img class="grid-img"
-            src="https://media.istockphoto.com/id/484868394/photo/soccer-players-in-action.jpg?s=612x612&w=0&k=20&c=XhNsaGAfJYUxRhvA0WY4oXSXmy2kOIr8gOmuHfTgRPk="
-            alt="Soccer" /></div>
+        <div class="col-6 col-lg-4"><img class="img-fluid grid-img" src="https://media.istockphoto.com/id/484868394/photo/soccer-players-in-action.jpg?s=612x612&w=0&k=20&c=XhNsaGAfJYUxRhvA0WY4oXSXmy2kOIr8gOmuHfTgRPk=" alt="Soccer" /></div>
       </div>
-    </div>
+      </div>
+   
   </main>
 
 
 
   <!--modal-->
 
-  <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+  <div class="modal fade" id="createPostModal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content rounded-3">
 
         <div class="modal-header border-bottom">
-          <h5 class="modal-title fw-semibold" id="createPostModalLabel">Create a new post</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title fw-semibold" >Create a new post</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class="modal-body pb-2">
+        
 
           <!--Caption-->
-
+        <div class="modal-body pb-2">
           <label for="captionText" class="form-label fw-semibold">Caption:</label>
           <textarea id="captionText" class="form-control mb-3" rows="4"
             placeholder="Add the caption of your post here"></textarea>
@@ -204,7 +173,7 @@
 
           <div class="d-flex gap-2">
             <button class="btn btn-outline-secondary d-flex align-items-center justify-content-center"
-              style="width:44px; height:44px; border-radius:8px;" title="Add photo"">
+              style="width:44px; height:44px; border-radius:8px;" title="Add photo">
               <i class=" bi bi-camera"></i>
             </button>
 
